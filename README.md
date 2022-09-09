@@ -1,57 +1,55 @@
-<!-- vscode-markdown-toc -->
-	* 1. [컴퓨터의 동작원리](#)
-	* 2. [메모리 저장방식에 대한 이해](#-1)
-	* 3. [메모리에서 음수 표현 방법](#-1)
-	* 4. [변수와 상수 / 데이터 타입](#-1)
-	* 5. [기본 연산자](#-1)
-	* 6. [조건문](#-1)
-	* 7. [튜플 (Tuple)](#Tuple)
-	* 8. [삼항연산자와 범위연산자](#-1)
-	* 9. [반복문](#-1)
-	* 10. [함수](#-1)
-	* 11. [Guard 문](#Guard)
-	* 12. [Optional](#Optional)
-	* 13. [Collection](#Collection)
-		* 13.1. [1. Array](#Array)
-		* 13.2. [2. Dictionary](#Dictionary)
-		* 13.3. [3. Set (집합)](#Set)
-	* 14. [열거형 (Enumeration)](#Enumeration)
-	* 15. [클래스와 구조체의 이해](#-1)
-		* 15.1. [1. 클래스](#-1)
-		* 15.2. [2. 구조체](#-1)
-		* 15.3. [3. 클래스와 구조체 비교](#-1)
-		* 15.4. [4. 클래스와 구조체를 사용하는 이유](#-1)
-	* 16. [속성](#-1)
-		* 16.1. [1. 저장속성](#-1)
-		* 16.2. [2. 계산속성](#-1)
-		* 16.3. [3. 타입속성](#-1)
-		* 16.4. [4. 속성 감시자(관찰자)](#-1)
-	* 17. [메서드](#-1)
-		* 17.1. [1. 인스턴스 메서드](#-1)
-		* 17.2. [2. 타입 메서드](#-1)
-		* 17.3. [3. 서브스크립트](#-1)
-		* 17.4. [4. 참고](#-1)
-	* 18. [클래스의 상속과 초기화](#-1)
-	* 19. [타입캐스팅](#-1)
-		* 19.1. [1. is 연산자](#is)
-		* 19.2. [2. as 연산자](#as)
-		* 19.3. [3. 타입과 다형성](#-1)
-		* 19.4. [4. Any와 AnyObject를 위한 타입캐스팅](#AnyAnyObject)
-	* 20. [타입의 확장 (Extension)](#Extension)
+<!-- TOC -->
+# Swift  Study Note
+- [컴퓨터의 동작원리](#%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%98-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC)
+- [메모리 저장방식에 대한 이해](#%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%80%EC%9E%A5%EB%B0%A9%EC%8B%9D%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4)
+- [메모리에서 음수 표현 방법](#%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90%EC%84%9C-%EC%9D%8C%EC%88%98-%ED%91%9C%ED%98%84-%EB%B0%A9%EB%B2%95)
+- [변수와 상수 / 데이터 타입](#%EB%B3%80%EC%88%98%EC%99%80-%EC%83%81%EC%88%98--%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85)
+- [기본 연산자](#%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90)
+- [조건문](#%EC%A1%B0%EA%B1%B4%EB%AC%B8)
+- [튜플 Tuple](#%ED%8A%9C%ED%94%8C-tuple)
+- [삼항연산자와 범위연산자](#%EC%82%BC%ED%95%AD%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80-%EB%B2%94%EC%9C%84%EC%97%B0%EC%82%B0%EC%9E%90)
+- [반복문](#%EB%B0%98%EB%B3%B5%EB%AC%B8)
+- [함수](#%ED%95%A8%EC%88%98)
+- [Guard 문](#guard-%EB%AC%B8)
+- [Optional](#optional)
+- [Collection](#collection)
+    - [Array](#array)
+    - [Dictionary](#dictionary)
+    - [Set 집합](#set-%EC%A7%91%ED%95%A9)
+- [열거형 Enumeration](#%EC%97%B4%EA%B1%B0%ED%98%95-enumeration)
+- [클래스와 구조체의 이해](#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EA%B5%AC%EC%A1%B0%EC%B2%B4%EC%9D%98-%EC%9D%B4%ED%95%B4)
+    - [클래스](#%ED%81%B4%EB%9E%98%EC%8A%A4)
+    - [구조체](#%EA%B5%AC%EC%A1%B0%EC%B2%B4)
+    - [클래스와 구조체 비교](#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EA%B5%AC%EC%A1%B0%EC%B2%B4-%EB%B9%84%EA%B5%90)
+    - [클래스와 구조체를 사용하는 이유](#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EA%B5%AC%EC%A1%B0%EC%B2%B4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0)
+- [속성](#%EC%86%8D%EC%84%B1)
+    - [저장속성](#%EC%A0%80%EC%9E%A5%EC%86%8D%EC%84%B1)
+    - [계산속성](#%EA%B3%84%EC%82%B0%EC%86%8D%EC%84%B1)
+    - [타입속성](#%ED%83%80%EC%9E%85%EC%86%8D%EC%84%B1)
+    - [속성 감시자관찰자](#%EC%86%8D%EC%84%B1-%EA%B0%90%EC%8B%9C%EC%9E%90%EA%B4%80%EC%B0%B0%EC%9E%90)
+- [메서드](#%EB%A9%94%EC%84%9C%EB%93%9C)
+    - [인스턴스 메서드](#%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EB%A9%94%EC%84%9C%EB%93%9C)
+    - [타입 메서드](#%ED%83%80%EC%9E%85-%EB%A9%94%EC%84%9C%EB%93%9C)
+    - [서브스크립트](#%EC%84%9C%EB%B8%8C%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8)
+    - [참고](#%EC%B0%B8%EA%B3%A0)
+- [클래스의 상속과 초기화](#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%83%81%EC%86%8D%EA%B3%BC-%EC%B4%88%EA%B8%B0%ED%99%94)
+- [타입캐스팅](#%ED%83%80%EC%9E%85%EC%BA%90%EC%8A%A4%ED%8C%85)
+    - [is 연산자](#is-%EC%97%B0%EC%82%B0%EC%9E%90)
+    - [as 연산자](#as-%EC%97%B0%EC%82%B0%EC%9E%90)
+    - [타입과 다형성](#%ED%83%80%EC%9E%85%EA%B3%BC-%EB%8B%A4%ED%98%95%EC%84%B1)
+    - [Any와 AnyObject를 위한 타입캐스팅](#any%EC%99%80-anyobject%EB%A5%BC-%EC%9C%84%ED%95%9C-%ED%83%80%EC%9E%85%EC%BA%90%EC%8A%A4%ED%8C%85)
+- [타입의 확장 Extension](#%ED%83%80%EC%9E%85%EC%9D%98-%ED%99%95%EC%9E%A5-extension)
 
-<!-- vscode-markdown-toc-config
-	numbering=true
-	autoSave=true
-	/vscode-markdown-toc-config -->
-<!-- /vscode-markdown-toc --># Swift Study Note
-
-###  1. <a name=''></a>컴퓨터의 동작원리
+<!-- /TOC -->
+### 컴퓨터의 동작원리
+<a id="markdown-%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%98-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC" name="%EC%BB%B4%ED%93%A8%ED%84%B0%EC%9D%98-%EB%8F%99%EC%9E%91%EC%9B%90%EB%A6%AC"></a>
 * 폰노이만 컴퓨터 구조 : cpu <-> ram(주기억 장치) <-> hdd(보조기억 장치)
 * 프로세스 : 실행중인 프로그램
 * 프로그래밍 -> 컴파일 -> 기계어
 * 메모리 = **코**드(프로그램) + (**데**이터 + **힙** + **스**택)
 
-###  2. <a name='-1'></a>메모리 저장방식에 대한 이해
+### 메모리 저장방식에 대한 이해
+<a id="markdown-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%80%EC%9E%A5%EB%B0%A9%EC%8B%9D%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4" name="%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%A0%80%EC%9E%A5%EB%B0%A9%EC%8B%9D%EC%97%90-%EB%8C%80%ED%95%9C-%EC%9D%B4%ED%95%B4"></a>
 - 비트 : 2진수(0b)에서 한개의 자릿수
 - 바이트 : 비트 8개 (컴퓨터에서 데이터를 다루기 위해 사용되는 기본단위)
 - 2$^8$ 즉 256가지를 표현 할 수 있다.
@@ -60,12 +58,14 @@
 - 2$^{32}$ = 32비트 = 4G 메모리 주소 기억
 - 2$^{64}$ = 64비트 = 16 EByte 메모리 주소 기억(16억)
 
-###  3. <a name='-1'></a>메모리에서 음수 표현 방법
+### 메모리에서 음수 표현 방법
+<a id="markdown-%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90%EC%84%9C-%EC%9D%8C%EC%88%98-%ED%91%9C%ED%98%84-%EB%B0%A9%EB%B2%95" name="%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%97%90%EC%84%9C-%EC%9D%8C%EC%88%98-%ED%91%9C%ED%98%84-%EB%B0%A9%EB%B2%95"></a>
 - 가장 앞에 자릿수로 부호를 표기
 - 기존 숫자에 2의 보수로 변환하고 1을 더함으로  음수를 표현
 - 2의 보수의 방식은 컴퓨터의 덧샘을 보다 빨리 계산할 수 있게 한다.
 
-###  4. <a name='-1'></a>변수와 상수 / 데이터 타입
+### 변수와 상수 / 데이터 타입
+<a id="markdown-%EB%B3%80%EC%88%98%EC%99%80-%EC%83%81%EC%88%98-%2F-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85" name="%EB%B3%80%EC%88%98%EC%99%80-%EC%83%81%EC%88%98-%2F-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85"></a>
 - String Interpolation : 문자열 보간법
     ```swift
     print("저의 이름은 \(name)입니다")
@@ -87,13 +87,15 @@
 - Literals : 코드에서 고정된 값으로 표현되는 데이터 그 자체
 - Identifier (식별자) : 변수, 상수, 함수, 사용자 정의 타입의 이름들 모두
 
-###  5. <a name='-1'></a>기본 연산자
+### 기본 연산자
+<a id="markdown-%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90" name="%EA%B8%B0%EB%B3%B8-%EC%97%B0%EC%82%B0%EC%9E%90"></a>
 - Operator (연산자), Operand (피연산자)
 - 모듈로 연산자 : 시간, 분, 배열에서 선택 할 때 유용
 - Compound Assignment Operator (복합 할당 연산자) : ++는 지원하지 않음
 - 접근연산자 : 점 (하위개념으로 접근)
 
-###  6. <a name='-1'></a>조건문
+### 조건문
+<a id="markdown-%EC%A1%B0%EA%B1%B4%EB%AC%B8" name="%EC%A1%B0%EA%B1%B4%EB%AC%B8"></a>
 - 프로그래밍의 세가지 논리 : 순차, 조건, 반복
 - 스위치문에서 콤마는 또는의 의미이다.
 - 스위치문은 비교하는 모든 경우의 수를 반드시 다뤄야 함 (exhaustive)
@@ -113,7 +115,8 @@
         break
     }
     ```
-###  7. <a name='Tuple'></a>튜플 (Tuple)
+### 튜플 (Tuple)
+<a id="markdown-%ED%8A%9C%ED%94%8C-tuple" name="%ED%8A%9C%ED%94%8C-tuple"></a>
 - 괄호와 쉼표로 복수 데이터 할당
 - 접근방법 : 변수명.0
 - Named Tuple :  코드의 가독성이 높아짐
@@ -150,7 +153,8 @@
     }
     ```
 
-###  8. <a name='-1'></a>삼항연산자와 범위연산자
+### 삼항연산자와 범위연산자
+<a id="markdown-%EC%82%BC%ED%95%AD%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80-%EB%B2%94%EC%9C%84%EC%97%B0%EC%82%B0%EC%9E%90" name="%EC%82%BC%ED%95%AD%EC%97%B0%EC%82%B0%EC%9E%90%EC%99%80-%EB%B2%94%EC%9C%84%EC%97%B0%EC%82%B0%EC%9E%90"></a>
 - 조건 ? 참 : 거짓  (조건에 따라 선택이 두가지 일 경우)
 - 조건에 따라서 리터럴 값을 변수에 할당 할 때 *주로* 사용
     ```swift
@@ -162,7 +166,8 @@
     a...b ~= age
     ```
 
-###  9. <a name='-1'></a>반복문
+### 반복문
+<a id="markdown-%EB%B0%98%EB%B3%B5%EB%AC%B8" name="%EB%B0%98%EB%B3%B5%EB%AC%B8"></a>
 - for 문 : 반복횟수를 미리 알고 있거나 컬렉션, 범위 등을 이용 할 때 사용 (범위, 컬렉션, 문자열, stride등)
 - while 문 : 반복횟수가 미리 정해저 있지 않고 조건에 따라 바꿜 때 사용 (조건)
 - 제어전송문
@@ -189,7 +194,8 @@
  5) return : 아래줄 참조
 
 
-###  10. <a name='-1'></a>함수
+### 함수
+<a id="markdown-%ED%95%A8%EC%88%98" name="%ED%95%A8%EC%88%98"></a>
 
 - 리턴 타입이 없는 함수는 결과값이 Void 타입
 - 리턴 타입이 있는 함수는 결과값이 있는것 (일반적으로 사용)
@@ -217,7 +223,8 @@
     swapNumber(a: &num1, b: &num2)
     ```
 
-###  11. <a name='Guard'></a>Guard 문
+### Guard 문
+<a id="markdown-guard-%EB%AC%B8" name="guard-%EB%AC%B8"></a>
 - 여러개의 조건이 있을때 코드의 가독성 문제를 해결하기 위해 사용
 - if-else에서 else문이 먼저 배치해서 조건을 판별하여 조기 종료 (early exit)
 - if 문 조건을 만족해야만 내부 실행, guard 문 조건을 만족하지 않으면 다음을 실행
@@ -255,7 +262,8 @@
     ```
 - guard문에서 선언된 상수는 래에서 사용 가능
 
-###  12. <a name='Optional'></a>Optional
+### Optional
+<a id="markdown-optional" name="optional"></a>
 - 옵셔널 타입은 반드시 변수(var)로 선언해야 한다.
 - 옵셔널 타입 추출 방법
     1) 강제추출 : num! (값이 항상 있는것이 확실 할 때 사용)
@@ -297,9 +305,11 @@
     }
     ```
 
-###  13. <a name='Collection'></a>Collection
+### Collection
+<a id="markdown-collection" name="collection"></a>
 > 데이터를 담는 바구니 (Array, Dictionary, Set)
-####  13.1. <a name='Array'></a>1. Array
+#### 1. Array
+<a id="markdown-array" name="array"></a>
 - 빈 배열을 생성하는 방법
     ```swift
     let emptyArray: [Int] = []
@@ -335,7 +345,8 @@
     - 동사원형 : 컬렉션 자체를 ==직접적으로 변환함==
     - 과거형 : 컬렉션 자체를 직접 ==변환하지 않고 변경된 값만 리턴함==
 
-####  13.2. <a name='Dictionary'></a>2. Dictionary
+#### 2. Dictionary
+<a id="markdown-dictionary" name="dictionary"></a>
 - 키, 밸류값
 - 동일한 타입 쌍의 데이터만 담을수 있음
 - 중첩사용 가능
@@ -369,13 +380,15 @@
     ```
 
 
-####  13.3. <a name='Set'></a>3. Set (집합)
+#### 3. Set (집합)
+<a id="markdown-set-%EC%A7%91%ED%95%A9" name="set-%EC%A7%91%ED%95%A9"></a>
 - 배열이랑 구분이 안되기 때문에 타입을 반드시 선언해야 함!
 - 요소는 중복 저장이 되지 않음 (hashable)
 - 서브스크립트 관련 문법이 없음
 
 
-###  14. <a name='Enumeration'></a>열거형 (Enumeration)
+### 열거형 (Enumeration)
+<a id="markdown-%EC%97%B4%EA%B1%B0%ED%98%95-enumeration" name="%EC%97%B4%EA%B1%B0%ED%98%95-enumeration"></a>
 - 타입 자체를 한정된 사례(CASE) 안에서 정의 할 수 있는 타입 (열거형은 타입이다!)
 - 일반적으로 switch 문으로 분기처리
 - 타입의 값(리터럴)
@@ -432,8 +445,10 @@
 
 
 
-###  15. <a name='-1'></a>클래스와 구조체의 이해
-####  15.1. <a name='-1'></a>1. 클래스
+### 클래스와 구조체의 이해
+<a id="markdown-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EA%B5%AC%EC%A1%B0%EC%B2%B4%EC%9D%98-%EC%9D%B4%ED%95%B4" name="%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EA%B5%AC%EC%A1%B0%EC%B2%B4%EC%9D%98-%EC%9D%B4%ED%95%B4"></a>
+#### 1. 클래스
+<a id="markdown-%ED%81%B4%EB%9E%98%EC%8A%A4" name="%ED%81%B4%EB%9E%98%EC%8A%A4"></a>
 - 프로그래밍 패러다임 : 객체 지향 프로그래밍으로 변화됨
 - 객체 지향 프로그래밍 : 틀(클래스, 구조체)로 실제데이터(객체)를 찍어내는 것
     ```swift
@@ -454,11 +469,13 @@
 - 클래스는 변수와 함수를 묶음으로 만들어 내는 것
 - 클래스 내의 변수는 속성(property), 함수는 메서드(method)라고 하고 반드시 2가지로 이루어짐
 
-####  15.2. <a name='-1'></a>2. 구조체
+#### 2. 구조체
+<a id="markdown-%EA%B5%AC%EC%A1%B0%EC%B2%B4" name="%EA%B5%AC%EC%A1%B0%EC%B2%B4"></a>
 - 기본적으로 클래스와 동일한 구조를 가지고 있으나, 상속이 안됨
 
 
-####  15.3. <a name='-1'></a>3. 클래스와 구조체 비교
+#### 3. 클래스와 구조체 비교
+<a id="markdown-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EA%B5%AC%EC%A1%B0%EC%B2%B4-%EB%B9%84%EA%B5%90" name="%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EA%B5%AC%EC%A1%B0%EC%B2%B4-%EB%B9%84%EA%B5%90"></a>
 - 둘다 메모리에 찍어낸 것을 인스턴스라고 함
 - 인스턴스 : 실제로 메모리에 할당되어 구체적 실체를 갖춘 것이라는 의미
 - 클래스의 인스턴스를 특별히 객체(object)라고 부름
@@ -470,7 +487,7 @@
 | 복사시 값을 전달할때 마다 **복사본 생성** <br> (서로 다른 데이터 존재) | 복시시 값을 전달하지 않고 저장된 **주소를 전달** <br>(동일한 데이터를 가르킨다)|
 | 스택 프레임 종료시 메모리에서 자동 제거 | ARC 시스템을 통해 메모리 관리| 
 
-
+![](https://i.imgur.com/dbOBuTN.png)
 
 
 
@@ -498,7 +515,8 @@
     print(dog1 !== dog2)
     ```
 
-####  15.4. <a name='-1'></a>4. 클래스와 구조체를 사용하는 이유
+#### 4. 클래스와 구조체를 사용하는 이유
+<a id="markdown-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EA%B5%AC%EC%A1%B0%EC%B2%B4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0" name="%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80-%EA%B5%AC%EC%A1%B0%EC%B2%B4%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0"></a>
 - 의미있는 데이터를 묶음으로 만들려고 함 (모델링)
 	1. 사용하려는 모델의 설계
 	2. 애플이 미리 설계해 놓은 클래스/구조체를 잘 사용하기 위함
@@ -510,15 +528,18 @@
 	4. 다형성 : 오버라이딩, 오버로딩
 
 
-###  16. <a name='-1'></a>속성
-####  16.1. <a name='-1'></a>1. 저장속성
+### 속성
+<a id="markdown-%EC%86%8D%EC%84%B1" name="%EC%86%8D%EC%84%B1"></a>
+#### 1. 저장속성
+<a id="markdown-%EC%A0%80%EC%9E%A5%EC%86%8D%EC%84%B1" name="%EC%A0%80%EC%9E%A5%EC%86%8D%EC%84%B1"></a>
 - 그 자체가 메모리 공간을 갖는것 (변수)
 - 지연 저장속성 (Lazy Stored Property) : 처음엔 메모리 공간을 가지지 않는 것, 초기화 값 반드시 필요
 - 지연 저장속성을 사용하는 이유 
 	1. 메모리 공간을 많이 차지 하는 속성을 사용 할 때
 	2. 다른 속성을 이용해야 할 때 (순서상)
 
-####  16.2. <a name='-1'></a>2. 계산속성
+#### 2. 계산속성
+<a id="markdown-%EA%B3%84%EC%82%B0%EC%86%8D%EC%84%B1" name="%EA%B3%84%EC%82%B0%EC%86%8D%EC%84%B1"></a>
 - 다른 저장 속성의 의한 결과로 계산해 나오는 방식의 메서드인 경우 아예 속성으로 만들어버림
 - get(값을 얻음, getter), set(값을 저장, setter)
 - set은 생략가능 (read-only)
@@ -554,14 +575,16 @@
     p1.bmi
     ```
 
-####  16.3. <a name='-1'></a>3. 타입속성
+#### 3. 타입속성
+<a id="markdown-%ED%83%80%EC%9E%85%EC%86%8D%EC%84%B1" name="%ED%83%80%EC%9E%85%EC%86%8D%EC%84%B1"></a>
 - 타입 자체에 속한 속성이므로 내/외부에서 Type.property로 접근, static keyword
 - 저장 타입 속성 : 모든 인스턴스가 동일하게 가져야 하는 보편적인 속성이나 공유해야 하는 성격의 것들 
 						(초기값 반드시  필요)
 - 계산 타입 속성 : 상속시 재정의 가능 (class 키워드를 사용시), 메서드라서 메모리 공간 미할당
 
 
-####  16.4. <a name='-1'></a>4. 속성 감시자(관찰자)
+#### 4. 속성 감시자(관찰자)
+<a id="markdown-%EC%86%8D%EC%84%B1-%EA%B0%90%EC%8B%9C%EC%9E%90%EA%B4%80%EC%B0%B0%EC%9E%90" name="%EC%86%8D%EC%84%B1-%EA%B0%90%EC%8B%9C%EC%9E%90%EA%B4%80%EC%B0%B0%EC%9E%90"></a>
 - (일반적으로) 저장 속성을 관찰함
 - willset : 값이 변하기 직전에 호출
 - didset : 값이 변한후 직후에 호출 (실제 프로젝트에서 일반적으로 주로 사용)
@@ -603,14 +626,17 @@
     ```
 
 
-###  17. <a name='-1'></a>메서드
+### 메서드
+<a id="markdown-%EB%A9%94%EC%84%9C%EB%93%9C" name="%EB%A9%94%EC%84%9C%EB%93%9C"></a>
 클래스나 구조체이 있는 함수
 
-####  17.1. <a name='-1'></a>1. 인스턴스 메서드
+#### 1. 인스턴스 메서드
+<a id="markdown-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EB%A9%94%EC%84%9C%EB%93%9C" name="%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EB%A9%94%EC%84%9C%EB%93%9C"></a>
 - 구조체는 인스턴스 메서드 내에서 속성을 수정 할 수 없음 (mutating 키워드 사용해야 함)
 - 오버로딩 적용 가능
 
-####  17.2. <a name='-1'></a>2. 타입 메서드
+#### 2. 타입 메서드
+<a id="markdown-%ED%83%80%EC%9E%85-%EB%A9%94%EC%84%9C%EB%93%9C" name="%ED%83%80%EC%9E%85-%EB%A9%94%EC%84%9C%EB%93%9C"></a>
 - 인스턴스에 속한 속성이 아니라 타입 자체에 속한 속성이므로 Type.method() 로 접근
 - static 키워드 사용 : 타입 저장속성에 접근가능 (붕어빵 틀 안에 속해 있는 메서드)
     ```swift
@@ -620,7 +646,8 @@
     ```
 - class 키워드 사용 :  상속시 재정의 가능 (static 으로 선언하면 상속시 재정의 불가)
 
-####  17.3. <a name='-1'></a>3. 서브스크립트
+#### 3. 서브스크립트
+<a id="markdown-%EC%84%9C%EB%B8%8C%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8" name="%EC%84%9C%EB%B8%8C%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8"></a>
 - 대괄호는 사실 특별한 형태의 메서드 호출 역할임 -> 따라서, 직접 구현도 가능하다.
 - 인스턴스.method()의 형태가 아닌 인스턴스[파라미터]의 형태
     ```swift
@@ -643,7 +670,8 @@
 - 계산 속성과 형태는 유사함 (getter / setter)
 - 인스턴스 서브스크립트와 타입 서브스크립트 모두 가능 (static/class 키워드 사용)
 
-####  17.4. <a name='-1'></a>4. 참고
+#### 4. 참고
+<a id="markdown-%EC%B0%B8%EA%B3%A0" name="%EC%B0%B8%EA%B3%A0"></a>
 - 접근제어 : private 키워드를 사용하면 외부에서 접근이 불가능하게 객체의 은닉화
 - 싱글톤 패턴 : 메모리상에 유일하게 1개만 존재하는 객체 설계 (==static let== 키워드)
     ```swift
@@ -657,7 +685,8 @@
     let object = Singleton()         // 에러!!
     ```
     
-###  18. <a name='-1'></a>클래스의 상속과 초기화
+### 클래스의 상속과 초기화
+<a id="markdown-%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%83%81%EC%86%8D%EA%B3%BC-%EC%B4%88%EA%B8%B0%ED%99%94" name="%ED%81%B4%EB%9E%98%EC%8A%A4%EC%9D%98-%EC%83%81%EC%86%8D%EA%B3%BC-%EC%B4%88%EA%B8%B0%ED%99%94"></a>
     
 - 상속 (Inherance = Subclassing) : 새로운 타입을 만들어서 저장속성을 추가하는 것 (수직확장)
 - 재정의 (Overriding) : 상위클래스의 속성/메서드를 재정의(기능을 변형하여 사용) 하는 것 (==저장속성 불가==)
@@ -749,12 +778,15 @@
 - 실패가능 생성자 : 인스턴스 생성에 실패 할 수도 있는 가능성을 가진 생성자(클래스, 구조체, 열거형)
 - 소멸자 : deinit 키워드 사용, 인스턴트가 메모리에서 해제 되기 직전에 필요한 내용을 구현
 
+![](https://i.imgur.com/FEy2kdY.png)
 
 
 
-###  19. <a name='-1'></a>타입캐스팅
+### 타입캐스팅
+<a id="markdown-%ED%83%80%EC%9E%85%EC%BA%90%EC%8A%A4%ED%8C%85" name="%ED%83%80%EC%9E%85%EC%BA%90%EC%8A%A4%ED%8C%85"></a>
 - 정의???
-####  19.1. <a name='is'></a>1. is 연산자
+#### 1. is 연산자
+<a id="markdown-is-%EC%97%B0%EC%82%B0%EC%9E%90" name="is-%EC%97%B0%EC%82%B0%EC%9E%90"></a>
 - 인스턴트의 타입에 대한 검사를 수행하는 연산자
     ```swift
     class Person {
@@ -790,7 +822,8 @@
 
     print(studentNumber)
     ```
-####  19.2. <a name='as'></a>2. as 연산자
+#### 2. as 연산자
+<a id="markdown-as-%EC%97%B0%EC%82%B0%EC%9E%90" name="as-%EC%97%B0%EC%82%B0%EC%9E%90"></a>
 - 인스턴트의 타입의 힌트를 변경하는 연산자 
 - 다운캐스팅 (Downcasting)
 	- 인스턴스 as? 타입 : 성공시 옵셔널 타입으로 리턴, 실패시 nil 리턴, 언래핑 필요
@@ -798,13 +831,15 @@
 - 업캐스팅 (Upcasting) - as 항상 성공 (당연)
 - as 연산자 활용 - 브릿징
 
-####  19.3. <a name='-1'></a>3. 타입과 다형성
+#### 3. 타입과 다형성
+<a id="markdown-%ED%83%80%EC%9E%85%EA%B3%BC-%EB%8B%A4%ED%98%95%EC%84%B1" name="%ED%83%80%EC%9E%85%EA%B3%BC-%EB%8B%A4%ED%98%95%EC%84%B1"></a>
 - 다형성 (Polymorphism) : 여러가지 모양 (추상화)
 	1 ) 하나의 객체(인스턴스)가 여러가지 타입의 형태로 표현 될 수 있다 
 	2) 상속했을 때 ==재정의한 메서드가 실행==된다
 	3) 다형성이 구현되는 것은 "클래스의 상속"과 깊은 연관이 있다 (프로토콜과 깊은 연관)
 
-####  19.4. <a name='AnyAnyObject'></a>4. Any와 AnyObject를 위한 타입캐스팅
+#### 4. Any와 AnyObject를 위한 타입캐스팅
+<a id="markdown-any%EC%99%80-anyobject%EB%A5%BC-%EC%9C%84%ED%95%9C-%ED%83%80%EC%9E%85%EC%BA%90%EC%8A%A4%ED%8C%85" name="any%EC%99%80-anyobject%EB%A5%BC-%EC%9C%84%ED%95%9C-%ED%83%80%EC%9E%85%EC%BA%90%EC%8A%A4%ED%8C%85"></a>
 - Any Type : 어떤 타입의 인스턴스도 표현 할 수 있는 타입 (옵셔널 포함)
 - AnyObject Type : 어떤 ***클래스*** 타입의 인스턴스도 표현 할 수 있는 타입
 - switch문에 is/as 패턴을 사용하여 case에서 배열등 열거후 분기처리 가능
@@ -824,7 +859,8 @@
         }
     }
     ```
-###  20. <a name='Extension'></a>타입의 확장 (Extension)
+### 타입의 확장 (Extension)
+<a id="markdown-%ED%83%80%EC%9E%85%EC%9D%98-%ED%99%95%EC%9E%A5-extension" name="%ED%83%80%EC%9E%85%EC%9D%98-%ED%99%95%EC%9E%A5-extension"></a>
 - 현재 존재하는 타입에 기능(메서드)을 추가하여 사용 (클래스, 구조체, 열거형 모두 가능)
 - 확장의 장점 : 소급-모델링(retroactive modeling)을 사용 할 수 있다 (애플이 미리 만들어 놓은 타입)
     ```swift
