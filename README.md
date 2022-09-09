@@ -64,7 +64,7 @@
 
 ### ✔️ 변수와 상수 / 데이터 타입
 - String Interpolation : 문자열 보간법
-    ```swift=
+    ```swift
     print("저의 이름은 \(name)입니다")
     ```
 - Type Annotation : 변수를 선언하면서 타입도 명확하게 지정하는 방식
